@@ -70,12 +70,12 @@ namespace Blackjack
 			public static void ExitOnStart()
 			{
 				{
-					Console.WriteLine("\n(-_-) It seems that you don't have money... y/n");
+					Console.WriteLine("\n(-_-) Ты что, пришел в казино без денег? y/n");
 					String QuitChoice = Console.ReadLine();
 					switch (QuitChoice)
 					{
 						case "y":
-							Console.WriteLine("\n(-_-) You are so boring...  \n" +
+							Console.WriteLine("\n(-_-) Ну, тогда иди отсюда...  \n" +
 											  "Press any key to exit...");
 							Console.ReadKey();
 							Environment.Exit(0);
@@ -83,7 +83,7 @@ namespace Blackjack
 						case "n":
 							break;
 						default:
-							Console.WriteLine("\ny for yes, n for no");
+							Console.WriteLine("\nнажми 'y' для да , 'n' для нет");
 							ExitOnStart();
 							break;
 					}
@@ -92,20 +92,20 @@ namespace Blackjack
 			public static void ExitInGame()
 			{
 				{
-					Console.WriteLine("\n($_$) Do you want continue earning(losing) money? y/n");
+					Console.WriteLine("\n($_$) Хочешь продолжить выигрывать(тратить) деньги? y/n");
 					String QuitChoice = Console.ReadLine();
 					switch (QuitChoice)
 					{
 						case "y":
 							break;
 						case "n":
-							Console.WriteLine("\n>:-D All your money is mine now!\n" +
+							Console.WriteLine("\n>:-D Все твоё имущество теперь моё!\n" +
 											  "Press any key to exit...");
 							Console.ReadKey();
 							Environment.Exit(0);
 							break;
 						default:
-							Console.WriteLine("\ny for yes, n for no");
+							Console.WriteLine("\nнажми 'y' для да , 'n' для нет");
 							ExitInGame();
 							break;
 					}
@@ -136,42 +136,44 @@ namespace Blackjack
 				//All first numbers end.
 				while (o == 0)
 				{
-					Console.WriteLine("\nHello and welcome to BlackJack Casino, place, where you can spend your money, to win money(or not).\n" +
-									  "Do you want to play Blackjack?(write 'h' for rules) y/n");
+					Console.WriteLine("\nЗдравствуйте и добро пожаловать в Казино, где можно играть только в Бледжек.\n +
+									  "(напишите 'h' чтобы посмотреть правила)\n" +
+									  "Не забудь поставить английскую раскладку" 
+									  "Хотите сыграть в блекджек? y/n/h");
 					StartChoice = Console.ReadLine();
 					switch (StartChoice)
 					{
 						case "h":
 							//rules
-							Console.WriteLine("\nRULES.\n" +
-											  "You are playing against a croupier (this guy --> >:-D ).\n" +
-											  "On the start of the game each of you gets two cards, one of croupier's card is open," +
-											  "every card has got its value (Joker = 11 or 1, Cards with image = 10, all\n" +
-											  "other = their value). To win the game, you need to get a combination of cards,\n" +
-											  "whose value in sum equals more than croupier's(if croupier has got more, you will lose),\n" +
-											  "this sum mustn't be more than 21(croupier's too). If it happens, you or croupier lose.\n" +
-											  "When first cards are dealt, you will have different choices: First, ask for the card.\n" +
-											  "Second, ask for the card and double your bet. And you can do it many times as you want.\n" +
-											  "P.s. If you have 21 at the start of a game(blackjack), it doesn't mean that you are winner.\n" +
-											  "P.s. Croupier must will open all his cards after you(when you stop taking them), and also\n" +
-											  "he will take the cards until he have got 17 or more.\n" +
-											  "P.s. If you win with blackjack, you will be payed by 4 to 2 of your bet (if your bet 100\n" +
-											  "you will get 300(with your bet))\n" +
-											  "P.s. Game is using 52 cards in each deck\n" +
-											  "P.s. Ace will take it value once(no changes for situation)\n" +
-											  "\nRULES END.\n");
+							Console.WriteLine("\nПРАВИЛА.\n" +
+											  "Ты играешь против крупье.\n" +
+											  "В начале игры каждый из вас получает по две карты, одна из карт крупье открыта,\n" +
+											  "У каждой карты есть своя стоимость (Джокер(A) = 11 или 1(по ситуации), карты с картинками = 10,\n" +
+											  "остальные = их цифре). Чтробы выиграть, тебе нужно получить комбинацию карт,\n" +
+											  "сумма которой больше суммы карт крупье(если в конце игры у крупье сумма окажется больше, ты проиграешь),\n" +
+											  "эта сумма не должна быть больше 21 (сумма крупье тоже). Если это происходит, вы или крупье проигрываете.\n" +
+											  "Когда произошла первая раздача карты у вас будет выбор: 1. Попросить карту.\n" +
+											  "2. попросить карту и удвоить ставку. Эти действия ты можешь делать столько раз, сколько захочешь. \n" +
+											  "P.s. Если у тебя сумма карт с первой раздачи 21, это не значит что ты выиграл\n" +
+											  "P.s. Крупье откроет все свои карты после тебя(когда ты перестанешь брать их), а также\n" +
+											  "он будет брать карты пока у него не будет сумма равная или больше 17");
+											  "P.s. Если ты выигрываешь, имея блекджек(21), ты получишь двойную сумму\n" +
+											  "ставки(например если твоя ставка 100, ты получишь 300(тебе отдадут твою ставку)\n" +
+											  "P.s. Игра использует 52 карточную колоду\n" +
+											  "P.s. Туз примет свое значение только один раз\n" +
+											  "\nКОНЕЦ ПРАВИЛ.\n");
 							break;
 						case "n":
 							Quit.ExitOnStart();
 							break;
 						case "y":
-							Console.WriteLine("\nThis guy is a croupier --> >:-D");
+							Console.WriteLine("\nЭтот пацан будет твоим крупье --> >:-D");
 							o++;
 							break;
 
 					}
 				}
-				Console.WriteLine("\nLet's start!");
+				Console.WriteLine("\nДавай начнем!");
 				while (h == 0)
 				{
 					int q = 0;
@@ -180,12 +182,12 @@ namespace Blackjack
 						//BET
 						if (Money < 10)
 						{
-							Console.WriteLine("\n(-_-) It's time to stop! Your balance is lower than minimum bet! Get out of here!\n" +
+							Console.WriteLine("\n(-_-) Пора остановиться! Твой баланс меньше минимальной ставки! Убирайся отсюда!\n" +
 											  "Press any key to exit casino...");
 							Console.ReadKey();
 							Environment.Exit(0);
 						}
-						Console.WriteLine("\n>:-> Make your bet! Bet lower than 10$ not allowed! You have " + Money + "$");
+						Console.WriteLine("\n>:-> Делай свою ставку! Ставки меньше 10$ не разрешены! У тебя " + Money + "$");
 						try
 						{
 							Bet = Convert.ToInt32(Console.ReadLine());
@@ -196,18 +198,18 @@ namespace Blackjack
 						}
 						if (Bet < 10)
 						{
-							Console.WriteLine("\n(-_-) Bets lower than 10$ are not allowed!");
+							Console.WriteLine("\n(-_-) Ставки меньше 10$ не разрешены!");
 							continue;
 						}
 						else if (Bet > Money)
 						{
-							Console.WriteLine("\n(-_-) You don't have that much money!");
+							Console.WriteLine("\n(-_-) У тебя нету таких денег!");
 							continue;
 						}
 						else
 						{
 							Money -= Bet;
-							Console.WriteLine("\n($_$) Bet accepted! Now you have " + Money + "$ in your pocket!");
+							Console.WriteLine("\n($_$) Ставка принята! Теперь у тебя " + Money + "$ в кармане!");
 							q++;
 							break;
 						}
@@ -219,7 +221,7 @@ namespace Blackjack
 					List<string> CroupierHand = new List<string>();
 					string Action = "";
 
-					Console.WriteLine("\n>:-D Press any key when you will be ready to win(lose) your money!");
+					Console.WriteLine("\n>:-D Нажми любую клавишу когда будешь готов выиграть(проиграть) свои деньги!");
 					Console.ReadKey();
 
 					//
@@ -242,23 +244,23 @@ namespace Blackjack
 					//
 					//Info
 					//
-					Console.WriteLine("\nYou have got these cards:\n" +
+					Console.WriteLine("\nУ тебя такие карты:\n" +
 									  "=========================");
 					foreach (string el in PlayerHand)
 					{
 						Console.WriteLine(el);
 					}
 					Console.WriteLine("=========================");
-					Console.WriteLine("\nValue of your cards = " + PlayerValue);
-					Console.WriteLine("\n>:-D I have got this card: ");
+					Console.WriteLine("\nСтоимость твоих карт = " + PlayerValue);
+					Console.WriteLine("\n>:-D У меня эта карта: ");
 					foreach (string el in CroupierHand)
 					{
 						Console.WriteLine(el);
 					}
-					Console.WriteLine("\n>:-D It's value is " + CroupierValue);
+					Console.WriteLine("\n>:-D Ее стоимость: " + CroupierValue);
 					if (CroupierValue == 10 && CroupierValue == 1)
 					{
-						Console.WriteLine("\n>:-D It would be a pity if i have got a blackjack!");
+						Console.WriteLine("\n>:-D Будет обидно, если у меня блекджек!");
 					}
 					//
 					//Info end
@@ -269,7 +271,7 @@ namespace Blackjack
 					while (j == 0)
 					{
 						//CHOICES
-						Console.WriteLine("\nTake card(c)/Double(d)/All nice(n)");
+						Console.WriteLine("\nВзять карту(c)/Удвоить(d)/Ничего не менять(n)");
 						Action = Console.ReadLine();
 						switch (Action)
 						{
@@ -277,29 +279,29 @@ namespace Blackjack
 								{
 									if (PlayerValueOverload == 0)
 									{
-										Console.WriteLine("\n>:-D Here you are.");
+										Console.WriteLine("\n>:-D Держи.");
 										int Card1 = f.Next(0, 13);
 										PlayerValue += Card.Value(Deck[Card1], PlayerValue);
 										PlayerHand.Add(Deck[Card1]);
-										Console.WriteLine("\n>:-I You got " + Deck[Card1]);
-										Console.WriteLine("\nYou have got these cards now:\n" +
+										Console.WriteLine("\n>:-I У тебя " + Deck[Card1]);
+										Console.WriteLine("\nТеперь у тебя эти карты:\n" +
 										  "=========================");
 										foreach (string el in PlayerHand)
 										{
 											Console.WriteLine(el);
 										}
 										Console.WriteLine("=========================");
-										Console.WriteLine("\nYour bet is " + Bet + "\nYour balance is " + Money + "$");
+										Console.WriteLine("\nТвоя ставка " + Bet + "$\nТвой баланс " + Money + "$");
 									}
 									if (PlayerValue > 21)
 									{
 										PlayerValueOverload = 1;
 									}
-									Console.WriteLine("\nValue of your cards = " + PlayerValue);
+									Console.WriteLine("\nСтоимость твоих карт = " + PlayerValue);
 									if (PlayerValueOverload == 1)
 									{
-										Console.WriteLine("\n>:-P You have got more than 21! You lost " + Bet + "$!\n" +
-										                  "\n Your balance is " + Money + "$");
+										Console.WriteLine("\n>:-P У тебя больше чем 21! Ты проиграл " + Bet + "$!\n" +
+										                  "\n Твой баланс " + Money + "$");
 
 										j++;
 									}
@@ -311,24 +313,24 @@ namespace Blackjack
 									{
 										if (Money > Bet)
 										{
-											Console.WriteLine("\n>:-D Here you are and thanks for the money!");
+											Console.WriteLine("\n>:-D Держи, и спасибо за деньги");
 											Money -= Bet;
 											Bet *= 2;
 											int Card1 = f.Next(0, 13);
 											PlayerValue += Card.Value(Deck[Card1], PlayerValue);
 											PlayerHand.Add(Deck[Card1]);
-											Console.WriteLine("\nYou have got these cards now:\n" +
+											Console.WriteLine("\nТеперь у тебя эти карты:\n" +
 											  "=========================");
 											foreach (string el in PlayerHand)
 											{
 												Console.WriteLine(el);
 											}
 											Console.WriteLine("=========================");
-											Console.WriteLine("\nNow your bet is " + Bet + "\nYour balance is " + Money + "$");
+											Console.WriteLine("\nТеперь твоя ставка " + Bet + "$\nТвой баланс " + Money + "$");
 										}
 										else
 										{
-											Console.WriteLine(">:-l Not enough money!");
+											Console.WriteLine(">:-l Недостаточно денег!");
 										}
 									}
 									//PLAYER LOST OVERLOAD
@@ -336,11 +338,11 @@ namespace Blackjack
 									{
 										PlayerValueOverload = 1;
 									}
-									Console.WriteLine("\nValue of your cards = " + PlayerValue);
+									Console.WriteLine("\nСтоимость твоих карт = " + PlayerValue);
 									if (PlayerValueOverload == 1)
 									{
-										Console.WriteLine("\n>:-P You have got more than 21! You lost " + Bet + "$!\n" +
-										                  "\n Your balance is " + Money + "$");
+										Console.WriteLine("\n>:-P У тебя больше 21! Ты проиграл " + Bet + "$!\n" +
+										                  "\n Твой баланс " + Money + "$");
 										j++;
 									}
 									break;
@@ -356,33 +358,33 @@ namespace Blackjack
 					{
 
 
-						Console.WriteLine("\n>:-> Now it's my turn to take cards!");
+						Console.WriteLine("\n>:-> Теперь моя очередь брать карты!");
 						System.Threading.Thread.Sleep(3000);
 						for (; CroupierValue < 17;)
 						{
 							int Card3 = f.Next(0, 13);
 							CroupierValue += Card.Value(Deck[Card3], CroupierValue);
 							CroupierHand.Add(Deck[Card3]);
-							Console.WriteLine("\n>:-> I got " + Deck[Card3] + "\nNow value of my cards equals to " + CroupierValue + "\n");
+							Console.WriteLine("\n>:-> I got " + Deck[Card3] + "\nТеперь стоимость моих карт равна " + CroupierValue + "\n");
 							System.Threading.Thread.Sleep(4000);
 						}
 
 						// CROUPIER LOST OVERLOAD
 						if (CroupierValue > 21)
 						{
-							Console.WriteLine("<:-< How it happened? I got more than 21! I lost!");
+							Console.WriteLine("<:-< Как это произошло? Я у меня больше 21! Я проиграл!");
 							CroupierValueOverload = 1;
 							if (PlayerValue == 21)
 							{
 								Money += Bet * 3;
-								Console.WriteLine("\n>:-< You won with a blackjack! Your profit is " + Bet * 2 + "$" +
-												  "\n Your balance is " + Money + "$");
+								Console.WriteLine("\n>:-< Ты выиграл блекджеком! Твой выигрыш составляет " + Bet * 2 + "$" +
+												  "\n Твой баланс " + Money + "$");
 							}
 							else
 							{
 								Money += Bet * 2;
-								Console.WriteLine("\n>:-< You won! Your profit is " + Bet + "$" +
-												  "\n Your balance is " + Money + "$");
+								Console.WriteLine("\n>:-< Ты выиграл! Твой выигрыш составляет " + Bet + "$" +
+												  "\n Твой баланс " + Money + "$");
 							}
 						}
 
@@ -394,15 +396,15 @@ namespace Blackjack
 								if (PlayerValue == 21 && PlayerHand.Count == 2)
 								{
 									Money += Bet * 3;
-									Console.WriteLine("\n>:-< You won with a blackjack! Your profit is " + Bet * 2 + "$" +
-													  "\n Your balance is " + Money + "$");
+									Console.WriteLine("\n>:-< Ты выиграл блекджеком! Твой выигрыш составляет" + Bet * 2 + "$" +
+													  "\n Твой баланс " + Money + "$");
 
 								}
 								else
 								{
 									Money += Bet * 2;
-									Console.WriteLine("\n>:-< You won! Your profit is " + Bet + "$" +
-													  "\n Your balance is " + Money + "$");
+									Console.WriteLine("\n>:-< Ты выиграл! Твой выигрыш составляет " + Bet + "$" +
+													  "\n Твой баланс " + Money + "$");
 
 								}
 							//CROUPIER WON
@@ -410,25 +412,25 @@ namespace Blackjack
 							{
 								if (CroupierValue == 21 && CroupierHand.Count == 2)
 								{
-									Console.WriteLine("\n>:-P My value is " + CroupierValue + " and your value is " + PlayerValue +
-													  "\nI won with a blackjack! You lost " + Bet + "$" +
-													  "\n Your balance is " + Money + "$");
+									Console.WriteLine("\n>:-P Стоимость моих карт " + CroupierValue + ", а стоимость твоих " + PlayerValue +
+													  "\nЯ победил блекджеком! Ты проиграл " + Bet + "$" +
+													  "\n Твой баланс " + Money + "$");
 								}
 								else
 								{
-									Console.WriteLine("\n>:-P My value is " + CroupierValue + " and your value is " + PlayerValue +
-													  "\nYou lost! You lost " + Bet + "$" +
-													  "\n Your balance is " + Money + "$");
+									Console.WriteLine("\n>:-P Стоимость моих карт " + CroupierValue + ", а стоимость твоих " + PlayerValue +
+													  "\nТы проиграл! Ты проиграл " + Bet + "$" +
+													  "\n Твой баланс " + Money + "$");
 
 								}
 							}
 							//NOBODY WINS
 							if (PlayerValue == CroupierValue)
 							{
-								Console.WriteLine("\n(>_<) My value equals to yours!(My value = " + CroupierValue + " Your value =" + PlayerValue + ")");
+								Console.WriteLine("\n(>_<) Стоимость моих карт равна стоимости твоих(Моя стоимость = " + CroupierValue + " Твоя стоимость =" + PlayerValue + ")");
 								Money += Bet;
-								Console.WriteLine("You get your bet ( " + Bet + "$ ) back.\n" +
-												  "Your balance is " + Money + "$");
+								Console.WriteLine("Ты получаешь свою ставку ( " + Bet + "$ ) обратно.\n" +
+												  "Твой баланс " + Money + "$");
 							}
 						}
 					}
